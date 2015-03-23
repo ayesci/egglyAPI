@@ -16,5 +16,19 @@ Class Model_bookmarks extends CI_Model
         }
         return $res;
     }
-    
+
+    public function add_bookmarks($url, $title, $id_category)
+    {
+        $sql = "INSERT INTO bookmarks(url, title, id_category)
+                VALUES (?, ?, ?)";
+        $data = [$url, $title, $id_category];
+        $this->db->query($sql, $data);
+
+        return $this->db->insert_id();
+    }
+
+
+
+
+
 }
